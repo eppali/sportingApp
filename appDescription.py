@@ -70,10 +70,11 @@ def main():
 
         # Affichage des images en fonction de l'état des boutons
         if st.session_state['show_backend']:
-            st.write("- Machine Linux (de péférence)")
-            st.write("- Langage de programmation: python")
-            st.write("- Principales librairies/ à utiliser: Flet/Flutter (mobile), Django (web)")
+            st.write("- Machine Linux (de péférence) ou mac")
+            st.write("- Langage de programmation: pytho/Dart")
+            st.write("- Principales librairies/ à utiliser: Flet/Flutter (mobile), Django (web): une préférence de flutter est plus probable")
             st.write("- Base de données SQL.")
+            st.write("- Android Studio / Xcode pour effectuer des tests de fonction sur des émulateurs.")
 
         # --------------------------------
 
@@ -94,17 +95,32 @@ def main():
     elif choice == "Déploiement":
         st.write("## Déploiement")
         
+        if 'show_mobile' not in st.session_state:
+            st.session_state['show_mobile'] = False
+            
+        def toggle_mobile():
+            st.session_state['show_mobile'] = not st.session_state['show_mobile']
+            
+        st.button("Service mobile", on_click=toggle_mobile, type = "primary")
+
+        if st.session_state['show_mobile']:
+            # st.write("- Docker")
+            st.write("- Un compte Google play Store")
+        
+        # ------------------------------------------
+        
         if 'show_containers' not in st.session_state:
             st.session_state['show_containers'] = False
             
         def toggle_container():
             st.session_state['show_containers'] = not st.session_state['show_containers']
             
-        st.button("Conteneurisation", on_click=toggle_container, type = "primary")
+        st.button("Conteneurisation / orchestration (fonctionnement sur web)", on_click=toggle_container, type = "primary")
 
         if st.session_state['show_containers']:
             st.write("- Docker")
             st.write("- Un compte DockerHub")
+            st.write("- Kubernetes")
         
         # ------------------------------------------
 
@@ -115,7 +131,7 @@ def main():
         def toggle_serveur():
             st.session_state['show_serveur'] = not st.session_state['show_serveur']
             
-        st.button("Serveurs/Cloud", on_click=toggle_serveur, type = "primary")
+        st.button("Serveurs/Cloud (fonctionnement sur web)", on_click=toggle_serveur, type = "primary")
 
         if st.session_state['show_serveur']:
             st.write("- Serveur Linux")
