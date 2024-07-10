@@ -6,9 +6,6 @@ import streamlit as st
 from PIL import Image
 #%matplotlib inline
 
-from joblib import dump, load
-from sklearn.preprocessing import LabelEncoder
-from sklearn.pipeline import make_pipeline
 
 #import matplotlib.pyplot as plt
 #import tkinter as tk
@@ -70,11 +67,11 @@ def main():
 
         # Affichage des images en fonction de l'état des boutons
         if st.session_state['show_backend']:
-            st.write("- Machine Linux (de péférence) ou mac")
-            st.write("- Langage de programmation: pytho/Dart")
+            st.write("- Machine Linux (de péférence) ou Mac")
+            st.write("- Langage de programmation: python/Dart")
             st.write("- Principales librairies/ à utiliser: Flet/Flutter (mobile), Django (web): une préférence de flutter est plus probable")
             st.write("- Base de données SQL.")
-            st.write("- Android Studio / Xcode pour effectuer des tests de fonction sur des émulateurs.")
+            st.write("- Android Studio / Xcode pour effectuer des tests de fonctionnement sur des émulateurs.")
 
         # --------------------------------
 
@@ -87,7 +84,7 @@ def main():
         st.button("Frontend", on_click=toggle_frontend, type = "primary")
 
         if st.session_state['show_frontend']:
-            st.write("JavaScript, React, CSS, HTML.")
+            st.write("JavaScript, Bootstrap, CSS, HTML.")
     
         
     #================================================================================
@@ -120,7 +117,7 @@ def main():
         if st.session_state['show_containers']:
             st.write("- Docker")
             st.write("- Un compte DockerHub")
-            st.write("- Kubernetes")
+            st.write("- Kubernetes ")
         
         # ------------------------------------------
 
@@ -137,6 +134,23 @@ def main():
             st.write("- Serveur Linux")
             st.write("- Github")
             st.write("- AWS")
+            
+        # ------------------------------------------
+
+        
+        if 'show_besoin' not in st.session_state:
+            st.session_state['show_besoin'] = False
+            
+        def toggle_serveur():
+            st.session_state['show_besoin'] = not st.session_state['show_besoin']
+            
+        st.button("Besoin d'informations", on_click=toggle_serveur, type = "primary")
+
+        if st.session_state['show_besoin']:
+            st.write("- Nom de l'application;")
+            st.write("- Logo;")
+            st.write("- Conditions d'utilisation de l'application;")
+            st.write("- Cahier des charges, ...")
         
     
     
