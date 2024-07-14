@@ -284,7 +284,7 @@ def main():
 
         if st.session_state['show_synthese']:
             st.write("- Durée totale estimative: 19 semaines soit environs 5 mois")
-            st.write("- NB: un jour d'effort de travail par semaine !")
+            st.write("- Un jour d'effort de travail par semaine (le samedi)")
     
     #================================================================================
     elif choice == "Copyrights":
