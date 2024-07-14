@@ -33,7 +33,7 @@ st.title("Développement d'aplication mobile/web")
 def main():
 
     content_options = ["Contexte et objectifs du projet", "Outils numériques envisageables", "Déploiement",
-                       "Copyrights"]
+                       "Principales étapes  et chronologie","Copyrights"]
     choice = st.sidebar.radio("Sommaire", content_options)
 
     #================================================================================
@@ -69,7 +69,7 @@ def main():
         if st.session_state['show_backend']:
             st.write("- Machine Linux (de péférence) ou Mac")
             st.write("- Langage de programmation: python/Dart")
-            st.write("- Principales librairies/ à utiliser: Flet/Flutter (mobile), Django (web): une préférence de flutter est plus probable")
+            st.write("- Principales librairies/ à utiliser: Flet/Flutter (préférence pour flutter)")
             st.write("- Base de données SQL.")
             st.write("- Android Studio / Xcode pour effectuer des tests de fonctionnement sur des émulateurs.")
 
@@ -102,7 +102,8 @@ def main():
 
         if st.session_state['show_mobile']:
             # st.write("- Docker")
-            st.write("- Un compte Google play Store")
+            st.write("- Un compte Google play Store (utilisation sur android)")
+            st.write("- Un compte app Store (utilisation sur iPhone)")
         
         # ------------------------------------------
         
@@ -117,7 +118,7 @@ def main():
         if st.session_state['show_containers']:
             st.write("- Docker")
             st.write("- Un compte DockerHub")
-            st.write("- Kubernetes ")
+            st.write("- Kubernetes (optionnel)")
         
         # ------------------------------------------
 
@@ -147,12 +148,143 @@ def main():
         st.button("Besoin d'informations", on_click=toggle_serveur, type = "primary")
 
         if st.session_state['show_besoin']:
-            st.write("- Nom de l'application;")
-            st.write("- Logo;")
-            st.write("- Conditions d'utilisation de l'application;")
+            st.write("- Nom de l'application")
+            st.write("- Logo")
+            st.write("- Conditions d'utilisation de l'application")
             st.write("- Cahier des charges, ...")
         
     
+    elif choice == "Principales étapes  et chronologie":
+        st.write("## Principales étapes  et chronologie")
+        
+        # ------------------------------------------------------
+        
+        if 'show_authentication' not in st.session_state:
+            st.session_state['show_authentication'] = False
+            
+        def toggle_authentication():
+            st.session_state['show_authentication'] = not st.session_state['show_authentication']
+            
+        st.button("Authentification (2 semaines)", on_click=toggle_authentication, type = "primary")
+
+        if st.session_state['show_authentication']:
+            # st.write("- Docker")
+            st.write("- Page d'accueil ")
+            st.write("- Création d'un nouveau compte")
+            st.write("- Connexion")
+            st.write("- Création d'un nouveau compte")
+            
+    
+        # ------------------------------------------------------
+        
+        if 'show_authorization' not in st.session_state:
+            st.session_state['show_authorization'] = False
+            
+        def toggle_authentication():
+            st.session_state['show_authorization'] = not st.session_state['show_authorization']
+            
+        st.button("Base de données, autorisation et gestion de compte (4 semaines)", on_click=toggle_authentication, type = "primary")
+
+        if st.session_state['show_authorization']:
+            st.write("- Bases de données")
+            st.write("- Vérirication / Existence / création d'un nouveau compte")
+            st.write("- Vérirication / Existence/ autorisation de connexion ")
+            st.write("- Cryptage des informations de connexion")
+            st.write("- Récupération de compte (réinitialisation)")  
+            st.write("- Suppression un compte, ...")
+            st.write("- Informations de confidentialité et CGU")
+            
+        # # ------------------------------------------------------
+        
+        # if 'show_database' not in st.session_state:
+        #     st.session_state['show_database'] = False
+            
+        # def toggle_authentication():
+        #     st.session_state['show_database'] = not st.session_state['show_database']
+            
+        # st.button("Base de données et mise en page de profils (4 semaines)", on_click=toggle_authentication, type = "primary")
+
+        # if st.session_state['show_database']:
+            
+        #     st.write("- Mise en page de profils (format profil, informations et actions à faire, ...)")
+            
+  
+            
+        # ------------------------------------------------------
+
+        if 'show_discipline_animations' not in st.session_state:
+            st.session_state['show_discipline_animations'] = False
+            
+        def toggle_discipline_animations():
+            st.session_state['show_discipline_animations'] = not st.session_state['show_discipline_animations']
+            
+        st.button("Intégration de différentes disciplines sportives et design (3 semaines)", on_click=toggle_discipline_animations, type = "primary")
+
+        if st.session_state['show_discipline_animations']:
+            st.write("- Intégrations des disciplines sportives (avec une désignation image)")
+            st.write("- Animations de pages ")
+            st.write("- Mise en page de profils (format profil, informations et actions à faire, ...)")
+            
+            
+        # ------------------------------------------------------
+
+        if 'show_localisation' not in st.session_state:
+            st.session_state['show_localisation'] = False
+            
+        def toggle_localisation():
+            st.session_state['show_localisation'] = not st.session_state['show_localisation']
+            
+        st.button("Intégration des localisations (3 semaines)", on_click=toggle_localisation, type = "primary")
+
+        if st.session_state['show_localisation']:
+            st.write("- Pays")
+            st.write("- Départements")
+            st.write("- Ville")
+            
+            
+        # ------------------------------------------------------
+
+        if 'show_partenaires' not in st.session_state:
+            st.session_state['show_partenaires'] = False
+            
+        def toggle_localisation():
+            st.session_state['show_partenaires'] = not st.session_state['show_partenaires']
+            
+        st.button("Utilisateurs et correspondance (3 semaines)", on_click=toggle_localisation, type = "primary")
+
+        if st.session_state['show_partenaires']:
+            st.write("- Par rapport à la localisation")
+            st.write("- Par rapport au genre")
+            st.write("- Par rapport aux disciplines sportives")
+            
+        # ------------------------------------------------------
+
+        if 'show_deployment' not in st.session_state:
+            st.session_state['show_deployment'] = False
+            
+        def toggle_deployment():
+            st.session_state['show_deployment'] = not st.session_state['show_deployment']
+            
+        st.button("Déployement (4 semaines)", on_click=toggle_deployment, type = "primary")
+
+        if st.session_state['show_deployment']:
+            st.write("- Sur Google play store")
+            st.write("- Sur app store")
+            st.write("- Github")
+
+        # ------------------------------------------------------
+
+        if 'show_synthese' not in st.session_state:
+            st.session_state['show_synthese'] = False
+            
+        def toggle_synthese():
+            st.session_state['show_synthese'] = not st.session_state['show_synthese']
+            
+        st.button("Synthèse chronologique prévisionnelle:", on_click=toggle_synthese, type = "primary")
+
+        if st.session_state['show_synthese']:
+            st.write("- Durée totale estimative: 19 semaines soit environs 5 mois")
+            st.write("- NB: un jour d'effort de travail par semaine !")
     
     #================================================================================
     elif choice == "Copyrights":
@@ -160,7 +292,8 @@ def main():
         #st.image(image, caption='')
         st.write("## Directeurs du projets")
         st.write("- Arjeka [learn more >] (https://www.arjeka.com/)")
-        st.write("- Arthur Hamer [learn more >] (...)")
+        st.write("- Arthur HAMER [learn more >] (...)")
+        st.write("- Anthony GASIOREK [learn more >] (...)")
         
         st.write()
         st.write("## Développeur informatique")
